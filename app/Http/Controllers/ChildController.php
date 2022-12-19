@@ -9,16 +9,23 @@ use App\Models\child as NewChild;
 class ChildController extends Controller
 {
     public function newChildrenRegistration(){
-        return view('child-registration');
+        $msg='';
+        return view('child-registration',compact('msg'));
     }
 
     public function newChildren(imgUpload $request){
+        $inputs=Request::all();
+        if(!empty($inputs['name']) && !empty($inputs['dob']) && !empty($inputs['class']) && !empty($inputs['Add']) && !empty($inputs['city']) && !empty($inputs['state']) && !empty($inputs['country']) && !empty($inputs['pincode'])){
         $validatedData = $request->validate([
             'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
     
            ]);
            $path = $request->file('image')->store('images');
            return $this->newReg($path);
+        }else{
+            $msg='Name,Date Of Birth, Class,Address,City,State,Country,Pincode Required';
+            return view('child-registration',compact('msg'));
+        }
     }
 
     public function newReg($img_name){

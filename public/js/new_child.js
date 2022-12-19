@@ -122,7 +122,7 @@ $('#save').on('click',function(){
         $('#city').css('border-color','');  
     }
 
-    if(pincode.length!=7){
+    if(pincode.length!=6){
         $('#pincode').css('border-color','red').css('border-width','2px');
         err=1;
     }else{

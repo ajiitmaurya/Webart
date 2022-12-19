@@ -17,7 +17,10 @@
     <body>
 
     <form method="POST" enctype="multipart/form-data" id="upload-data" action="{{ url('dashboard') }}">
-      <h1 style="text-align:center">New Children Registration </h1>
+      <h1 style="text-align:center">New Children Registration</h1>
+      @if(!empty($msg))
+<p style="color:red; font-size:30px">{{$msg}} </p>
+      @endif
     <div style="text-align:center" class="col-md-12 mb-2 center">
                   <img id="preview-image-before-upload" src="https://www.riobeauty.co.uk/images/product_image_not_found.gif"
                       alt="preview image" style="height: 250px;width: 240px;" class="rounded-circle">
@@ -108,7 +111,7 @@
                                 </div>
 
 
-  <button type="button" id="save" class="btn btn-primary">Sign in</button>
+  <button type="button" id="save" class="btn btn-primary">Insert Children Data</button>
 </form>
         </body>
         </html>
