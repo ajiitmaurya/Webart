@@ -100,11 +100,39 @@
                                                 </tr>
                                             </thead>
                                             <tbody id="tbody">
+                                            <tr>
+                  <td class="row-index text-center">
+                   <div class="form-group  mb-2">
+                            <input class="form-control" id="per_name" name='person_name[]' placeholder="Enter Person Name">
+                    </div>
+                  </td>
+                   <td class="row-index text-center">
+                   <div class="form-group">
+                            <select class ="form-control" name="relation[]" id="per_rel">
+                            <option value="father">Father</option>
+                            <option value="mother">Mother</option>
+                            <option value="brother">Brother</option>
+                            <option value="sister">Sister</option>
+                            <option value="grandfather">Grand Father</option>  
+                            <option value="grandmother">Grand Mother</option>
+                            </select>
+                        </div>
+                   </td>
+
+                   <td class="row-index text-center">
+                   <div class="form-group  mb-2">
+                            <input class="form-control" name='contact[]' id="per_cont" placeholder="Enter Mobile No.">
+                    </div>
+                   </td>
+
+                   <td class="text-center">
+                      <button class="btn btn-danger"
+                        type="button" disabled>Remove Person</button>
+                      </td>
+                    </tr>
                                             </tbody>
                                         </table>
                                     </div>
-
-                                    <div id="tbody"></div>
                                     <button class="btn btn-md btn-primary" id="addBtn" type="button">
                                         Add more Person
                                     </button>

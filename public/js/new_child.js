@@ -85,6 +85,8 @@ $('#save').on('click',function(){
     let country_val=$('#country').val();
     let state_val=$('#state').val();
     let city=$('#city').val();
+    let per_name=$('#per_name').val();
+    let per_cont=$('#per_cont').val();
     let pincode=$('#pincode').val();
 
     if(name.length<3){
@@ -141,6 +143,20 @@ $('#save').on('click',function(){
         err=1;
     }else{
         $('#state').css('border-color','');  
+    }
+
+    if(per_name.length<2){
+        $('#per_name').css('border-color','red').css('border-width','2px');
+        err=1;
+    }else{
+        $('#per_name').css('border-color','');  
+    }
+
+    if(per_cont.length<10){
+        $('#per_cont').css('border-color','red').css('border-width','2px');
+        err=1;
+    }else{
+        $('#per_cont').css('border-color','');  
     }
 
     if(!err){

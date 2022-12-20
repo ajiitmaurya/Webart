@@ -15,12 +15,15 @@ class ChildController extends Controller
 
     public function newChildren(imgUpload $request){
         $inputs=Request::all();
+        $path='';
         if(!empty($inputs['name']) && !empty($inputs['dob']) && !empty($inputs['class']) && !empty($inputs['Add']) && !empty($inputs['city']) && !empty($inputs['state']) && !empty($inputs['country']) && !empty($inputs['pincode'])){
-        $validatedData = $request->validate([
+        if(!empty($inputs['image'])){
+            $validatedData = $request->validate([
             'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
     
            ]);
            $path = $request->file('image')->store('images');
+        }
            return $this->newReg($path);
         }else{
             $msg='Name,Date Of Birth, Class,Address,City,State,Country,Pincode Required';
@@ -30,14 +33,11 @@ class ChildController extends Controller
 
     public function newReg($img_name){
         $inputs=Request::all();
+        if(!empty($inputs['image'])){
         unset($inputs['image']);
-        $inputs['img']=$img_name;
-        $child_data=NewChild::create($inputs);
-        if(!empty($child_data)){ 
-            $child=$child_data->toArray();
-          return view('viewdata', compact('child'));
-        }else{
-            return ['Error'=>'SomeThing Went Wrong'];
         }
+        $inputs['img']=$img_name;
+            $child=$inputs;
+          return view('viewdata', compact('child'));
     }
 }
