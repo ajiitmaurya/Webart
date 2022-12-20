@@ -18,8 +18,8 @@
 
       <h1 style="text-align:center">{{\Arr::get($child,'name','User')}} Data</h1>
     <div style="text-align:center" class="col-md-12 mb-2 center">
-                  <img src="{{asset(\Arr::get($child,'img',''))}}"
-                      alt="preview image" style="height: 250px;width: 240px;" class="rounded-circle">
+                  <img src="{{asset('get-image/'.\Arr::get($child,'img',''))}}"
+                      alt="preview image" style="height: 240px;width: 240px;" class="rounded-circle">
     </div>
   <div class="form-group ">
     <div class="form-row col-md-12">

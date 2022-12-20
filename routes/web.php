@@ -20,3 +20,4 @@ Route::get('/', 'App\Http\Controllers\ChildController@newChildrenRegistration');
 Route::any('/dashboard', 'App\Http\Controllers\ChildController@newChildren');
 
 Route::get('/fetch-country', 'App\Http\Controllers\Controller@fetchCountry');
+Route::get('/get-image/images/{img}', 'App\Http\Controllers\Controller@getImage');
